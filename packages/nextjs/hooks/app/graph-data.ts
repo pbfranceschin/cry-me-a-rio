@@ -38,6 +38,7 @@ export function useGraphData () {
     }
   }, [memoizedContractData])
 
+  console.log('data in useGraphData', data)
 
   return { data, isLoading: contractData?.isLoading, error: contractData?.error }
 }
@@ -45,11 +46,13 @@ export function useGraphData () {
 const parseContractData = (data: any[]) => {
     let yes: number[] = [];
     let no: number[] = [];
-    let labels: number[] = [];
+    let labels: string[] = [];
     for(let checkpoint of data) {
         yes.push(Number(checkpoint.totalNumYes));
         no.push(Number(checkpoint.totalNumNo));
-        labels.push(Number(checkpoint.timestamp))
+        const date = new Date(1000*Number(checkpoint.timestamp))
+        console.log('date', date)
+        labels.push(`${date.getDate()}/${date.getMonth() + 1} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`)
     }
     return { yes, no, labels }
 }
