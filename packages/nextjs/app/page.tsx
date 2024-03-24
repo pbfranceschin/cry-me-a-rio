@@ -10,12 +10,15 @@ const BettingInterface = () => {
   // You would have state and functions to handle betting logic
 
   return (
-    <div >
+    <div className={styles.main} >
       <Title />
       <Description />
-      {/* <Chart /> */}
-      <BetOptions />
-      <ClaimButton />
+      <div className={styles.bettingInfo}>
+        <div className={styles.flexContainer}>
+          <Chart />
+          <BetOptions />
+        </div>
+      </div>
     </div>
   );
 }
@@ -34,22 +37,28 @@ const Description = () => {
  return (
   <div className={styles.descriptionContainer}>
     <div className={styles.description}>
-         IS GON' RAIN {'>'}=10MM <span >MARCH 25 15:00 AT CEP 22793-310</span>.
+         IS GON' RAIN  <span className={styles.selection}> {'>'}=10MM</span> <span className={styles.selection}>MARCH 25 15:00 AT CEP 22793-310</span>.
       </div>
   </div>
  )
 }
 
 const BetOptions = () => (
-  <div className="bet-options">
-    <button className={styles.yesButton}>YES (0.01 ETH)</button>
-    <button className={styles.noButton}>NO (0.01 ETH)</button>
+  <div className={styles.optionsContainer}>
+    <div className={styles.bettingOptions}>
+      <button className={styles.yesButton}><span className={styles.yes}>YES</span> <span className={styles.yesPrice}>(0.01 ETH)</span></button>
+      <button className={styles.noButton}><span className={styles.no}>NO</span> <span className={styles.noPrice}>(0.01 ETH)</span></button>
+      <button className={styles.claimButton}><span className={styles.claim}>CLAIM</span> </button>
+    </div>
   </div>
 );
 
-const ClaimButton = () => (
-  <button className={styles.claimButton}>CLAIM</button>
-);
+
+const Chart = () => (
+  <div className={styles.chartContainer}> 
+    
+  </div>
+)
 
 export default BettingInterface;
 // const Home = () => {
