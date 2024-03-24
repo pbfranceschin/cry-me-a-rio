@@ -178,13 +178,12 @@
         font-family: 'Jacques Francois Shadow';
         color: transparent;
         -webkit-text-stroke: 2px #858884; 
-  }
+  } 
 
-  .minhaClasseDiv {
-    background-image: url('/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 500px; /* Defina uma altura, pois um div vazio pode não ter altura inicial */
-    width: 100%; /* Opcional, dependendo de como você quer que o div se comporte */
-  }
+ /* betting.module.css */
+.main {
+  background-image: url('/images/background.png');
+  background-size: cover;
+  background-position: center;
+  /* Outros estilos para .main podem ser adicionados aqui */
+}

@@ -10,14 +10,14 @@ const BettingInterface = () => {
   // You would have state and functions to handle betting logic
 
   return (
-    <div className={styles.main} >
+    <div className={styles.main}>
       <Title />
       <Description />
       <div className={styles.bettingInfo}>
         <div className={styles.flexContainer}>
           <Chart />
           <BetOptions />
-        </div>
+        </div>  
       </div>
     </div>
   );
