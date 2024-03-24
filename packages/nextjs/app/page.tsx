@@ -2,7 +2,6 @@
 // import Title from "~~/components/title/Title"; 
 // import styles from "./home.module.css";
 import styles from "./betting.module.css";
-import { homedir } from "os";
 import React, { useEffect, useMemo, useState } from 'react';
 // import Chart from './Chart'; // Assuming you have a chart component
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -110,7 +109,7 @@ const Title = () => (
     <h1 className={styles.title}>$CRY ME A RIO</h1>
     
     <div className={styles.subtitle}>
-        FUND FLOOD RELIEF BY BETTING ON IF IT'S GON' RAIN
+        FUND FLOOD RELIEF BY BETTING ON IF IT&apos;S GON&apos; RAIN
     </div>
   </header>
 );
@@ -119,7 +118,7 @@ const Description = () => {
  return (
   <div className={styles.descriptionContainer}>
     <div className={styles.description}>
-         IS GON' RAIN  <span className={styles.selection}> {'>'}=10MM</span> <span className={styles.selection}>MARCH 25 15:00 AT CEP 22793-310</span>.
+         IS GON&apos; RAIN  <span className={styles.selection}> {'>'}=10MM</span> <span className={styles.selection}>MARCH 25 15:00 AT CEP 22793-310</span>.
       </div>
   </div>
  )
@@ -138,8 +137,6 @@ const BetOptions = ({onClaim, onYes, onNo, noPrice, yesPrice} : {onYes: any, onN
 
 const BetChart = () => {
   const data = useGraphData();
-  const memoizedGraphData = useMemo(() => data, [data.data]);
-  const [chart, setChart] = useState<any>();
 
   return (
     <div className={styles.chartContainer}>
