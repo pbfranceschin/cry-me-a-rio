@@ -67,8 +67,11 @@ const BettingInterface = () => {
       return
     try {
       await requestResult(client, signer);
-    } catch (error) {
+    } catch (error:any) {
       console.error(error);
+      console.log('errror message', typeof error.message)
+      if(error.message.includes('Betting period has not expired.'))
+        alert('Betting period has not expired.')
     }
   }
 
