@@ -53,7 +53,8 @@
 }
 
   .title{
-    font-size: 80px;
+    font-size: 100px;
+    text-shadow: 1px 5px green;
     font-weight: bold;
     font-family: 'Jacques Francois Shadow';
     /* text-shadow: 0px 0px 4px #225819;  */
@@ -70,7 +71,7 @@
   .chartContainer {
     border: 5px solid #225819; /* Bordas do contêiner do gráfico */
     margin: 20px auto;
-    height: 250px;
+    height: 280px;
     max-width: 60%;
     /* Substitua 'placeholder-chart.png' pelo caminho correto do gráfico */
     /* background: url('placeholder-chart.png') no-repeat center center; */
@@ -80,27 +81,38 @@
   .optionsContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
     max-width: 70%;
   }
 
   .bettingOptions {
     display: flex;
     justify-content: space-between;
-
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    flex-wrap: wrap; /* Permite que os itens se envolvam em linhas adicionais conforme necessário */
+    gap: 10px; /* Espaço entre os botões */
   }
 
+
   .yesButton {
-    padding-inline: 16px;
+    padding-inline-start: 10px;
+    padding-right: 90px;
     margin-inline: 10px;
+    position: relative;
+    left: 233px; /* Move o botão 10px para a direita da sua posição original */
     cursor: pointer;
     transition: 0.3s;
     background: #c7fa9f; 
     
     border: 4px solid #225819;
   }
+  .yesButton:hover {
+    background: #5dc74a; /* Cor de fundo do botão Claim ao passar o mouse */
+  }
 
   .yes{
-    font-size: 46px;
+    font-size: 60px;
     font-weight: 700;
     font-family: 'Jacques Francois Shadow';
     color: transparent;
@@ -114,17 +126,24 @@
   }
 
   .noButton {
-    padding-inline: 26px;
+    padding-inline-start: 10px;
+    padding-right: 90px;  
+    margin-right: 0px;
+    margin-top: 0px;
     margin-inline: 10px;
+    position: relative;
+    left: 225px; /* Move o botão 10px para a direita da sua posição original */
     cursor: pointer;
-    border: none;
     transition: 0.3s;
     background: #fac09f;
     border: 4px solid #AE0303;
   }
+  .noButton:hover {
+    background: #eb4141; /* Cor de fundo do botão Claim ao passar o mouse */
+  }
 
   .no{
-    font-size: 46px;
+    font-size: 60px;
     font-weight: 700;
     font-family: 'Jacques Francois Shadow';
     color: transparent;
@@ -141,10 +160,13 @@
   .no-button { background: #f44336; color: #fff; } */
   .claimButton {
     background: #d5d4d4; /* Cor do fundo do botão Claim */
-    padding-inline: 26px;
+    padding-inline-start: 10px;
+    padding-right: 90px;
     margin-inline: 10px;
+    position: relative;
+    left: 216px; /* Move o botão 10px para a direita da sua posição original */
+    transition: 0.3s;
     font-size: 24px;
-    border: none;
     border: 4px solid #858884;
   }
   .claimButton:hover {
@@ -152,9 +174,17 @@
   }
 
   .claim{
-        font-size: 46px;
+        font-size: 60px;
         font-weight: 700;
         font-family: 'Jacques Francois Shadow';
         color: transparent;
         -webkit-text-stroke: 2px #858884; 
-  }
+  } 
+
+ /* betting.module.css */
+ .main {
+  background-image: url('');
+  background-size: cover; /* Cobrir todo o espaço disponível */
+  background-position: center; /* Centralizar imagem no elemento */
+  background-repeat: no-repeat; /* Não repetir a imagem */
+}
