@@ -1,7 +1,7 @@
 import abi from "../../abi/bettingContract.json";
 
 export function getBettingContractAddress() {
-    return "0x53ef01d15dE6d88d97C346038A5a8b5f749649F5"
+    return "0x62c8377f758b63760B6A6C9D5BDa81cC04775b1e"
 }
 
 export function getBettingContractAbi() {

@@ -135,7 +135,7 @@ const BetChart = () => {
        : data.error
         ? data.error.message
         : data.data
-         ? <Line datasetIdKey="id" data={data.data} />
+         ? <Line datasetIdKey="id" data={data.data} width={590}   options={{ maintainAspectRatio: false }}/>
          : "no data"
         }
     </div>
