@@ -13,6 +13,7 @@ import { Line } from "react-chartjs-2";
 import { placeNoBet, placeYesBet } from "~~/calls/bet";
 import { usePublicClient, useWalletClient } from "wagmi";
 import { requestResult } from "~~/calls/claim";
+import { formatEther } from "viem";
 
 
 const BettingInterface = () => {
@@ -85,7 +86,13 @@ const BettingInterface = () => {
       <div className={styles.bettingInfo}>
         <div className={styles.flexContainer}>
           <BetChart />
-          <BetOptions onYes={() => onBet('yes')} onNo={() => onBet('no')} onClaim={onClaim} />
+          <BetOptions 
+          onYes={() => onBet('yes')} 
+          onNo={() => onBet('no')} 
+          onClaim={onClaim}
+          yesPrice={prices?.data? prices?.data[0] : undefined}
+          noPrice={prices?.data? prices?.data[1] : undefined}
+          />
         </div>
       </div>
     </div>
@@ -112,11 +119,11 @@ const Description = () => {
  )
 }
 
-const BetOptions = ({onClaim, onYes, onNo} : {onYes: any, onNo: any, onClaim: any}) => (
+const BetOptions = ({onClaim, onYes, onNo, noPrice, yesPrice} : {onYes: any, onNo: any, onClaim: any, noPrice?: bigint, yesPrice?: bigint}) => (
   <div className={styles.optionsContainer}>
     <div className={styles.bettingOptions}>
-      <button className={styles.yesButton} onClick={onYes}><span className={styles.yes}>YES</span> <span className={styles.yesPrice}>(0.01 ETH)</span></button>
-      <button className={styles.noButton} onClick={onNo}><span className={styles.no}>NO</span> <span className={styles.noPrice}>(0.01 ETH)</span></button>
+      <button className={styles.yesButton} onClick={onYes}><span className={styles.yes}>YES</span> <span className={styles.yesPrice}>{yesPrice? `(${formatEther(yesPrice)} ETH)` : "NA"}</span></button>
+      <button className={styles.noButton} onClick={onNo}><span className={styles.no}>NO</span> <span className={styles.noPrice}>{noPrice? `(${formatEther(noPrice)} ETH)` : "NA"}</span></button>
       <button className={styles.claimButton} onClick={onClaim}><span className={styles.claim}>CLAIM</span> </button>
     </div>
   </div>
