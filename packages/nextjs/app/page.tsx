@@ -118,7 +118,8 @@ const Description = () => {
  return (
   <div className={styles.descriptionContainer}>
     <div className={styles.description}>
-         IS GON&apos; RAIN  <span className={styles.selection}> {'>'}=10MM</span> <span className={styles.selection}>MARCH 25 15:00 AT CEP 22793-310</span>.
+                  {/* IS GON&apos; RAIN  <span className={styles.selection}> {'>'}=10MM</span> <span className={styles.selection}>MARCH 25 15:00 AT CEP 22793-310</span>. */}
+                  {"IS GON’ RAIN >=3MM ON MARCH 25 IN RIO?"}
       </div>
   </div>
  )
