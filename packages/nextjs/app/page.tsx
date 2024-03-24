@@ -2,11 +2,10 @@
 // import Title from "~~/components/title/Title"; 
 // import styles from "./home.module.css";
 import styles from "./betting.module.css";
-import { homedir } from "os";
 import React, { useEffect, useMemo, useState } from 'react';
 // import Chart from './Chart'; // Assuming you have a chart component
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { usePrices } from "~~/hooks/app/betting-data";
+import { usePrices, useStrikeTimestamp } from "~~/hooks/app/betting-data";
 import { useGraphData } from "~~/hooks/app/graph-data";
 import 'chart.js/auto';
 import { Line } from "react-chartjs-2";
@@ -25,6 +24,9 @@ const BettingInterface = () => {
 
   const client = usePublicClient();
   const { data: signer } = useWalletClient();
+  const strikeTimestamp = useStrikeTimestamp();
+
+  console.log('striketime', strikeTimestamp ? new Date(1000*Number(strikeTimestamp.data)) : "")
 
   console.log('prices', prices);
 
@@ -67,8 +69,11 @@ const BettingInterface = () => {
       return
     try {
       await requestResult(client, signer);
-    } catch (error) {
+    } catch (error:any) {
       console.error(error);
+      console.log('errror message', typeof error.message)
+      if(error.message.includes('Betting period has not expired.'))
+        alert('Betting period has not expired.')
     }
   }
 
@@ -104,7 +109,7 @@ const Title = () => (
     <h1 className={styles.title}>$CRY ME A RIO</h1>
     
     <div className={styles.subtitle}>
-        FUND FLOOD RELIEF BY BETTING ON IF IT'S GON' RAIN
+        FUND FLOOD RELIEF BY BETTING ON IF IT&apos;S GON&apos; RAIN
     </div>
   </header>
 );
@@ -113,7 +118,7 @@ const Description = () => {
  return (
   <div className={styles.descriptionContainer}>
     <div className={styles.description}>
-    {"IS GON’ RAIN >=3MM ON MARCH 25 IN RIO?"}
+         IS GON&apos; RAIN  <span className={styles.selection}> {'>'}=10MM</span> <span className={styles.selection}>MARCH 25 15:00 AT CEP 22793-310</span>.
       </div>
   </div>
  )
@@ -132,8 +137,6 @@ const BetOptions = ({onClaim, onYes, onNo, noPrice, yesPrice} : {onYes: any, onN
 
 const BetChart = () => {
   const data = useGraphData();
-  const memoizedGraphData = useMemo(() => data, [data.data]);
-  const [chart, setChart] = useState<any>();
 
   return (
     <div className={styles.chartContainer}>

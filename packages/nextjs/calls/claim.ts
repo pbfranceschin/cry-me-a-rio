@@ -14,8 +14,7 @@ export const requestResult = async (
         account,
         address: getBettingContractAddress(),
         abi: getBettingContractAbi(),
-        functionName: 'requestResult',
-        args: [0,1]
+        functionName: 'requestResult'
     });
     const hash = await signer.writeContract(request);
     await client.waitForTransactionReceipt({ hash });

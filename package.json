@@ -21,7 +21,7 @@
     "foundry:test": "yarn workspace @se-2/foundry test",
     "generate": "yarn workspace @se-2/foundry generate",
     "postinstall": "husky install",
-    "next:build": "yarn workspace @se-2/nextjs build",
+    "next:build": "next build",
     "next:check-types": "yarn workspace @se-2/nextjs check-types",
     "next:format": "yarn workspace @se-2/nextjs format",
     "next:lint": "yarn workspace @se-2/nextjs lint",

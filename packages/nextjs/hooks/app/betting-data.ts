@@ -40,3 +40,12 @@ export function useLastCheckpoint() {
          ? checkpoints[checkpoints.length - 1]
          : null
 }
+
+export function useStrikeTimestamp () {
+    return useContractRead({
+        address: getBettingContractAddress(),
+        abi: getBettingContractAbi(),
+        functionName: 'strikeTimestamp',
+        chainId: networkID
+    });
+}
