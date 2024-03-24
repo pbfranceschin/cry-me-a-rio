@@ -6,7 +6,7 @@ import { homedir } from "os";
 import React, { useEffect, useMemo, useState } from 'react';
 // import Chart from './Chart'; // Assuming you have a chart component
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { usePrices } from "~~/hooks/app/betting-data";
+import { usePrices, useStrikeTimestamp } from "~~/hooks/app/betting-data";
 import { useGraphData } from "~~/hooks/app/graph-data";
 import 'chart.js/auto';
 import { Line } from "react-chartjs-2";
@@ -25,6 +25,9 @@ const BettingInterface = () => {
 
   const client = usePublicClient();
   const { data: signer } = useWalletClient();
+  const strikeTimestamp = useStrikeTimestamp();
+
+  console.log('striketime', strikeTimestamp ? new Date(1000*Number(strikeTimestamp.data)) : "")
 
   console.log('prices', prices);
 
