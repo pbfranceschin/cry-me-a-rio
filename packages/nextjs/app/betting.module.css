@@ -54,6 +54,7 @@
 
   .title{
     font-size: 100px;
+    text-shadow: 1px 5px green;
     font-weight: bold;
     font-family: 'Jacques Francois Shadow';
     /* text-shadow: 0px 0px 4px #225819;  */
@@ -181,9 +182,9 @@
   } 
 
  /* betting.module.css */
-.main {
-  background-image: url('/images/background.png');
-  background-size: cover;
-  background-position: center;
-  /* Outros estilos para .main podem ser adicionados aqui */
+ .main {
+  background-image: url('');
+  background-size: cover; /* Cobrir todo o espaço disponível */
+  background-position: center; /* Centralizar imagem no elemento */
+  background-repeat: no-repeat; /* Não repetir a imagem */
 }
