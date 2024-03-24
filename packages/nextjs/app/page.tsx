@@ -3,20 +3,89 @@
 // import styles from "./home.module.css";
 import styles from "./betting.module.css";
 import { homedir } from "os";
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 // import Chart from './Chart'; // Assuming you have a chart component
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { usePrices } from "~~/hooks/app/betting-data";
+import { useGraphData } from "~~/hooks/app/graph-data";
+import 'chart.js/auto';
+import { Line } from "react-chartjs-2";
+import { placeNoBet, placeYesBet } from "~~/calls/bet";
+import { usePublicClient, useWalletClient } from "wagmi";
+import { requestResult } from "~~/calls/claim";
+
 
 const BettingInterface = () => {
-  // You would have state and functions to handle betting logic
+  const [loadingPage, setLoadingPage] = useState(true);
+  const graphData = useGraphData();
+  const prices = usePrices();
+  const memoizedPrices = useMemo(() => prices, [prices?.data]);
+  const memoizedGraphData = useMemo(() => graphData, [graphData?.data]);
+
+  const client = usePublicClient();
+  const { data: signer } = useWalletClient();
+
+  console.log('prices', prices);
+
+
+  useEffect(() => {
+    console.log('render')
+    if(!graphData?.isLoading) {
+      setTimeout(() => {
+        setLoadingPage(false)
+      }, 2000);
+    }
+  }, [memoizedGraphData, memoizedPrices]);
+
+  const onBet = async (option: 'yes' | 'no') => {
+    if(!signer){
+      alert('connect a wallet');
+      return
+    }
+    if(!prices) {
+      alert('no price data found');
+      return
+    }
+    if(option === 'yes') {
+      try {
+        await placeYesBet(client, signer, prices.data[0]);
+      } catch(err) {
+        console.error(err);
+      }
+    } else if(option === 'no') {
+      try {
+        await placeNoBet(client, signer, prices.data[1])
+      } catch(err) {
+        console.error(err);
+      }
+    }
+  }
+
+  const onClaim = async () => {
+    if(!signer)
+      return
+    try {
+      await requestResult(client, signer);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  if(loadingPage)
+    return <div>Loading...</div>
+
+  if(graphData.error || prices.error)
+    return <div>{graphData.error ? graphData.error.message : prices.error?.message}</div>
 
   return (
     <div className={styles.main} >
+      <ConnectButton />
       <Title />
       <Description />
       <div className={styles.bettingInfo}>
         <div className={styles.flexContainer}>
-          <Chart />
-          <BetOptions />
+          <BetChart />
+          <BetOptions onYes={() => onBet('yes')} onNo={() => onBet('no')} onClaim={onClaim} />
         </div>
       </div>
     </div>
@@ -43,22 +112,34 @@ const Description = () => {
  )
 }
 
-const BetOptions = () => (
+const BetOptions = ({onClaim, onYes, onNo} : {onYes: any, onNo: any, onClaim: any}) => (
   <div className={styles.optionsContainer}>
     <div className={styles.bettingOptions}>
-      <button className={styles.yesButton}><span className={styles.yes}>YES</span> <span className={styles.yesPrice}>(0.01 ETH)</span></button>
-      <button className={styles.noButton}><span className={styles.no}>NO</span> <span className={styles.noPrice}>(0.01 ETH)</span></button>
-      <button className={styles.claimButton}><span className={styles.claim}>CLAIM</span> </button>
+      <button className={styles.yesButton} onClick={onYes}><span className={styles.yes}>YES</span> <span className={styles.yesPrice}>(0.01 ETH)</span></button>
+      <button className={styles.noButton} onClick={onNo}><span className={styles.no}>NO</span> <span className={styles.noPrice}>(0.01 ETH)</span></button>
+      <button className={styles.claimButton} onClick={onClaim}><span className={styles.claim}>CLAIM</span> </button>
     </div>
   </div>
 );
 
 
-const Chart = () => (
-  <div className={styles.chartContainer}> 
-    
-  </div>
-)
+const BetChart = () => {
+  const data = useGraphData();
+  const memoizedGraphData = useMemo(() => data, [data.data]);
+  const [chart, setChart] = useState<any>();
+
+  return (
+    <div className={styles.chartContainer}>
+      {data.isLoading
+       ? "Loading..."
+       : data.error
+        ? data.error.message
+        : data.data
+         ? <Line datasetIdKey="id" data={data.data} />
+         : "no data"
+        }
+    </div>
+  )}
 
 export default BettingInterface;
 // const Home = () => {
