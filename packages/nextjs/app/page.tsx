@@ -1,18 +1,93 @@
 "use client";
+// import Title from "~~/components/title/Title"; 
+// import styles from "./home.module.css";
+import styles from "./betting.module.css";
+import { homedir } from "os";
+import React from 'react';
+// import Chart from './Chart'; // Assuming you have a chart component
 
-import Title from "~~/components/title/Title";
+const BettingInterface = () => {
+  // You would have state and functions to handle betting logic
 
-const Home = () => {
   return (
-    <>
-      <div>
-        <Title />
-      </div>
-    </>
+    <div >
+      <Title />
+      <Description />
+      {/* <Chart /> */}
+      <BetOptions />
+      <ClaimButton />
+    </div>
   );
-};
+}
 
-export default Home;
+const Title = () => (
+  <header className={styles.header}>
+    <h1 className={styles.title}>$CRY ME A RIO</h1>
+    
+    <div className={styles.subtitle}>
+        FUND FLOOD RELIEF BY BETTING ON IF IT'S GON' RAIN
+    </div>
+  </header>
+);
+
+const Description = () => {
+ return (
+  <div className={styles.descriptionContainer}>
+    <div className={styles.description}>
+         IS GON' RAIN {'>'}=10MM <span >MARCH 25 15:00 AT CEP 22793-310</span>.
+      </div>
+  </div>
+ )
+}
+
+const BetOptions = () => (
+  <div className="bet-options">
+    <button className={styles.yesButton}>YES (0.01 ETH)</button>
+    <button className={styles.noButton}>NO (0.01 ETH)</button>
+  </div>
+);
+
+const ClaimButton = () => (
+  <button className={styles.claimButton}>CLAIM</button>
+);
+
+export default BettingInterface;
+// const Home = () => {
+//   return (
+//     // <head>
+//     // <meta charset="UTF-8">
+//     // <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     // <title>Flood Relief Betting</title>
+//     // </head>
+//     <body className={styles.frame1}>
+
+//     <div className={styles.title}>
+//       $CRY ME A RIO
+//     </div>
+
+//     <div >
+//       <div className={styles.subtitle}>
+//         FUND FLOOD RELIEF BY BETTING ON IF IT'S GON' RAIN
+//       </div>
+//       <div className={styles.description}>
+//         IS GON' RAIN {'>'}=10MM <span >MARCH 25 15:00 AT CEP 22793-310</span>.
+//       </div>
+
+//       {/* <div className={styles.graph}>
+        
+//       </div> */}
+
+//       <button className={styles.buttonYes}><span className={styles.yes}>YES</span> <span className={styles.price}>(0.01 ETH)</span></button>
+//       <button className={styles.buttonNo}><span className={styles.no}>NO</span> <span className={styles.price}>(0.01 ETH)</span></button>
+
+//       <button className={styles.buttonClaim}>CLAIM</button>
+//     </div>
+
+//     </body>
+//   );
+// };
+
+// export default Home;
 
 // import Link from "next/link";
 // import type { NextPage } from "next";

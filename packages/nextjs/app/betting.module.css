@@ -1,0 +1,106 @@
+
+  /* body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  } */
+
+  .main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header {
+    /* background: #4CAF50;  */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 20px 0;
+    margin-bottom: 25px;
+  }
+
+  .subtitle{
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    text-align: center;
+    
+    color: #000000;
+  }
+
+
+  .descriptionContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .description{    
+        
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    
+    color: #000000;
+    
+}
+
+  .title{
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Jacques Francois Shadow';
+    /* text-shadow: 0px 0px 4px #225819;  */
+    color: white;
+    -webkit-text-stroke: 2px #225819; /* Espessura e cor da borda do texto para navegadores WebKit/Blink */
+  }
+  .mainContent {
+    margin: 0 20px;
+  }
+  .bettingInfo {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  .chartContainer {
+    border: 5px solid #4CAF50; /* Bordas do contêiner do gráfico */
+    margin: 20px auto;
+    height: 250px;
+    /* Substitua 'placeholder-chart.png' pelo caminho correto do gráfico */
+    /* background: url('placeholder-chart.png') no-repeat center center; */
+    /* background-size: cover; */
+  }
+  .yesButton {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    background: #4CAF50; color: #fff;
+  }
+
+  .noButton {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    background: #4CAF50; color: #fff;
+  }
+  /* .yes-button { background: #4CAF50; color: #fff; }
+  .no-button { background: #f44336; color: #fff; } */
+  .claimButton {
+    background: #808080; /* Cor do fundo do botão Claim */
+    color: #fff; /* Cor do texto do botão Claim */
+    padding: 15px 30px;
+    font-size: 24px;
+    border: none;
+    margin-top: 20px;
+  }
+  .claimButton:hover {
+    background: #9e9e9e; /* Cor de fundo do botão Claim ao passar o mouse */
+  }

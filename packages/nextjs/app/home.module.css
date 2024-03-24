@@ -1,0 +1,218 @@
+/* Frame 1 */
+.frame1{
+    
+    background: #FFFFFF;
+}
+    
+/* Rectangle 6 */
+    
+.buttonNO{
+    box-sizing: border-box;
+    
+        
+    background: #FAC09F;
+    border: 30px solid #AE0303;
+}    
+    
+    /* Rectangle 7 */
+.buttonClaim{    
+    box-sizing: border-box;
+    
+    
+    background: #D5D4D4;
+    border: 30px solid #646161;
+}
+    
+    /* Rectangle 4 */
+.buttonYes{    
+    box-sizing: border-box;
+    
+    
+    background: #C7FA9F;
+    border: 30px solid #225819;
+}
+    
+    /* NO(0.01 ETH) */
+.price{    
+    
+    font-family: 'Jacques Francois Shadow';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    /* identical to box height */
+    
+    color: #AE0303;
+}
+    
+    
+    /* CLAIM */
+.claim{
+     
+    
+    font-family: 'Jacques Francois Shadow';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 400px;
+    /* identical to box height */
+    
+    color: #858884;
+}
+    
+    
+    /* image 1 */
+    
+.graph{    
+    box-sizing: border-box;
+    
+    /* background: url(image.png); */
+    border: 3px solid #225819;
+}    
+    
+    /* Rectangle 2 */
+/* .rectangle2{    
+     
+    width: 1068px;
+    height: 287px;
+    left: 4598px;
+    top: 1756px;
+    
+    background: #FFFFFF;
+    
+}    
+    /* Rectangle 8 */
+/* .rectangle8{    
+     
+    width: 1068px;
+    height: 287px;
+    left: 289px;
+    top: 1756px;
+    
+    background: #FFFFFF;
+} */
+    
+    /* Group 4 */
+    
+    /*  
+    width: 4662px;
+    height: 302px;
+    left: 227px;
+    top: 1446px;
+    
+     */
+    
+    /* IS GON’ RAIN >=10MM MARCH 25 15:00 AT CEP 22793-310 . */
+.description{    
+     
+    /* width: 4662px;
+    height: 302px; */
+    left: 227px;
+    top: 1446px;
+    
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    
+    color: #000000;
+    
+}    
+    
+    /* Polygon 1 */
+    
+    /* box-sizing: border-box;
+    
+     
+    width: 62.5px;
+    height: 57px;
+    left: 1975.54px;
+    top: 1595px;
+    
+    background: #C7FA9F;
+    border: 10px solid #225819;
+    transform: rotate(-180deg); */
+    
+    
+    /* Polygon 3 */
+    
+    /* box-sizing: border-box;
+    
+     
+    width: 62.5px;
+    height: 57px;
+    left: 3310.28px;
+    top: 1605px;
+    
+    background: #C7FA9F;
+    border: 10px solid #225819;
+    transform: rotate(-180deg);
+     */
+    
+    /* Polygon 2 */
+    
+    /* box-sizing: border-box;
+    
+     
+    width: 72.17px;
+    height: 76px;
+    left: 4662.47px;
+    top: 1596px;
+    
+    background: #C7FA9F;
+    border: 10px solid #225819;
+    transform: rotate(-180deg);
+    
+     */
+    /* $CRY ME A RIO */
+    
+    .title {
+         
+        /* width: 5173px;
+        height: 791px; */
+        left: 201px;
+        top: 57px;
+        
+        font-family: 'Jacques Francois Shadow';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 60px;
+        text-align: center;
+        
+        color: #225819;
+    }
+    
+    /* YES (0.01 ETH) */
+    .yes{
+         
+        /* width: 1364px;
+        height: 528px; */
+        left: 350px;
+        top: 4232px;
+        
+        font-family: 'Jacques Francois Shadow';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        /* identical to box height */
+        
+        color: #225819;
+    }
+    
+    
+    
+    /* FUND FLOOD RELIEF BY BETTING ON IF ITS GON’ RAIN */
+    
+.subtitle{
+     
+    /* width: 4245px;
+    height: 302px; */
+    left: 171px;
+    top: 821px;
+    
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    
+    color: #000000;
+}
