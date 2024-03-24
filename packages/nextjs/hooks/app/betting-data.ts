@@ -36,7 +36,7 @@ export function useLastCheckpoint() {
     console.log('contractData in useLasrCheckPoint', contractData)
     const checkpoints = contractData.data as BetCheckPoint[]
     console.log('checkpoints in useLasrCheckPoint', checkpoints);
-    return checkpoints.length > 0
+    return checkpoints?.length > 0
          ? checkpoints[checkpoints.length - 1]
          : null
 }
